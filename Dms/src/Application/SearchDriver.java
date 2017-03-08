@@ -1,3 +1,7 @@
+/**
+ * Java file containg the search driver interface
+ * for the ui of the application.
+ */
 package Application;
 
 import javax.swing.*;
@@ -6,7 +10,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * Created by centhian on 3/7/17.
+ * Java class that updates the ui with search functionality
+ * buttons, text field, and results list.
  */
 public class SearchDriver {
     private JFrame frame;
@@ -18,6 +23,11 @@ public class SearchDriver {
         this.frame = frame;
     }
 
+    /**
+     * Function the removes the current ui components,
+     * reinitalizes the frame with search components,
+     * and then revalidates and repaints the frame.
+     */
     public void reset(){
         frame.getContentPane().removeAll();
         initialize();

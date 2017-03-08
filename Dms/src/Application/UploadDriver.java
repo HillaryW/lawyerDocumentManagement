@@ -1,3 +1,7 @@
+/**
+ * Java file containg the upload driver interface
+ * for the ui of the application.
+ */
 package Application;
 
 import javax.swing.*;
@@ -6,7 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by centhian on 3/7/17.
+ * Java class that updates the ui with upload functionality
+ * buttons, text field, and results list.
  */
 public class UploadDriver {
     private JFrame frame;
@@ -16,6 +21,11 @@ public class UploadDriver {
         this.frame = frame;
     }
 
+    /**
+     * Function the removes the current ui components,
+     * reinitalizes the frame with upload components,
+     * and then revalidates and repaints the frame.
+     */
     public void reset(){
         frame.getContentPane().removeAll();
         initialize();

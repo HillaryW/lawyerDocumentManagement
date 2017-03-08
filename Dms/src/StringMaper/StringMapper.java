@@ -1,14 +1,27 @@
+/**
+ * Java class that takes a string and converts it to a hash map.
+ * The hash map keys are the words from the string without duplicates.
+ * The hash map values are the number of times the word is in the string.
+ */
 package StringMaper;
 
 import java.util.HashMap;
 
 /**
- * Created by centhian on 3/4/17.
+ * Java class that takes a string and converts it to a hash map.
  */
 public class StringMapper {
 
-    HashMap<String,Integer> keywordMap = new HashMap<>();
+    private HashMap<String,Integer> keywordMap = new HashMap<>();
 
+    /**
+     * Method that takes a string and returns a hashmap of the words and
+     * number of occurances of the word.
+     *
+     * @param string
+     * @return hashmap <String(words) Integer(occurances)>
+     *
+     */
     public HashMap<String, Integer> processString(String string){
         String[] stringArray = parseString(string);
         mapStringArray(stringArray);
