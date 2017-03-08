@@ -1,3 +1,7 @@
+/**
+ * Java file that contains the class that interfaces
+ * with the database functions and the ui of the application.
+ */
 package Application;
 
 import Database.DBFunctions;
@@ -12,14 +16,21 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Created by centhian on 3/4/17.
+ * Java class that interfaces with the database of the application.
+ * Contains the upload and search functions.
  */
 public class BackEndDriver {
-    static StringMapper mapper = new StringMapper();
-    static DBFunctions dbFunctions = new DBFunctions();
-    static PdfParser pdfParser = new PdfParser();
-    static DocxParser docxParser = new DocxParser();
+    private StringMapper mapper = new StringMapper();
+    private DBFunctions dbFunctions = new DBFunctions();
+    private PdfParser pdfParser = new PdfParser();
+    private DocxParser docxParser = new DocxParser();
 
+    /**
+     * Function uploads document to the database
+     * Takes the file name, uses the built in parsers
+     *
+     * @param filePath
+     */
     public static void uploadDocument(String filePath) {
         String text = "";
         String[] filePathArray = filePath.split("/");
@@ -34,10 +45,22 @@ public class BackEndDriver {
         dbFunctions.insertKeywordData(fileName,parsedFileMap);
     }
 
+    /**
+     * Searches the database for files containg the keyword param
+     *
+     * @param keyword
+     * @return reutrns hashmap of filenames and occurances of the keyword
+     */
     public static HashMap<String, Integer> searchDocuments(String keyword){
         return dbFunctions.getFileNamesContainingKeyword(keyword);
     }
 
+    /**
+     * Returns an array list generated from the hash map param
+     *
+     * @param results
+     * @return ArrayList<String>
+     */
     public static ArrayList<String> getResults(HashMap<String, Integer> results){
         ArrayList<String> fileNames = new ArrayList<>();
         int i = 0;

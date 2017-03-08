@@ -1,13 +1,23 @@
+/**
+ * Java file contaiing a class that has database
+ * functions to select and insert information into a database
+ */
 package Database;
 
 import java.sql.*;
 import java.util.HashMap;
 
 /**
- * Created by centhian on 3/4/17.
+ * Java class containing data base insert and select functions.
+ *
  */
 public class DBFunctions {
 
+    /**
+     * Function returns a list of files containg the search word.
+     * @param keyword search word
+     * @return hashmap containg file names containg the search word.
+     */
     public HashMap<String, Integer> getFileNamesContainingKeyword(String keyword) {
         HashMap<String, Integer> files = new HashMap<>();
         Connection connection = DBConnection.getDBConnection();
@@ -51,6 +61,13 @@ public class DBFunctions {
         return files;
     }
 
+    /**
+     * Function to insert words and number of occurances into
+     * the database
+     *
+     * @param fileName
+     * @param data hashmap of words and occurances
+     */
     public void insertKeywordData(String fileName, HashMap<String, Integer> data) {
         Connection connection = DBConnection.getDBConnection();
         PreparedStatement statement = null;

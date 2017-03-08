@@ -1,22 +1,26 @@
-package Application;
-
 /**
- * Created by centhian on 3/7/17.
+ * Java file containg the application driver class
+ * It is the main ui for the application.
  */
+package Application;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
+/**
+ * Java class for the main ui of the application
+ */
 public class ApplicationDriver {
 
     private JFrame frame;
     private UploadDriver uploadMenu;
 
     /**
-     * Launch the application.
+     * Main function that starts the application ui
+     *
+     * @param args
      */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -31,17 +35,11 @@ public class ApplicationDriver {
         });
     }
 
-    /**
-     * Create the application.
-     */
-    public ApplicationDriver() {
+    private ApplicationDriver() {
         initialize();
         this.uploadMenu = new UploadDriver(frame);
     }
 
-    /**
-     * Initialize the contents of the frame.
-     */
     private void initialize() {
         frame = new JFrame("Document Management System");
         frame.setBounds(100, 100, 450, 300);
@@ -69,7 +67,7 @@ public class ApplicationDriver {
         });
     }
 
-    public void setMainMenu() {
+    private void setMainMenu() {
 
         JButton btnSearch = new JButton("Search");
         btnSearch.setBounds(10, 21, 87, 23);

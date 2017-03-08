@@ -1,3 +1,8 @@
+/**
+ * Java Class that uses Adobe POI library to parse a docx document and
+ * returns it as string
+ *
+ */
 package Docx;
 
 import java.io.File;
@@ -12,6 +17,12 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
  */
 public class DocxParser {
 
+    /**
+     * Takes a docx file and converts it to a string
+     *
+     * @param filePath
+     * @return String - string representation of the docx file
+     */
     public String getTextString(String filePath) {
         StringBuilder builder = new StringBuilder();
 
