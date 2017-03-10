@@ -71,6 +71,9 @@ public class SearchDriver {
                     list = new JList(listArray);
                     list.setBounds(10, 80, 414, 40);
                     frame.getContentPane().add(list);
+
+                    setFileOpenListener();
+
                     frame.revalidate();
                     frame.repaint();
                     System.out.println("Searched");
@@ -84,6 +87,31 @@ public class SearchDriver {
             }
 
         });
+    }
+
+    private void setFileOpenListener() {
+        list.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                JList list = (JList)evt.getSource();
+                if (evt.getClickCount() == 2) {
+                    Object selected = list.getSelectedValue();
+                    openFile(selected.toString());
+                }
+            }
+        });
+    }
+
+    private void openFile(String fileName){
+        if (Desktop.isDesktopSupported()) {
+            try {
+                File myFile = new File("/home/centhian/Documents/DmsFiles/" + fileName);
+                Desktop.getDesktop().open(myFile);
+            } catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(frame, "File not found. Make sure file is in correct location.");
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(frame,"No application found to open file type.");
+            }
+        }
     }
 }
 
